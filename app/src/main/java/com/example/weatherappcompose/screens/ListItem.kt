@@ -27,8 +27,8 @@ fun ListItem(item: WeatherModel) {
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Column(
                 modifier = Modifier.padding(
@@ -43,18 +43,20 @@ fun ListItem(item: WeatherModel) {
                     color = Color.White
                 )
             }
-            Text(
-                text = item.currentTemp.ifEmpty { "${item.maxTemp}/${item.minTemp}" },
-                color = Color.White,
-                style = TextStyle(fontSize = 25.sp)
-            )
-            AsyncImage(
-                model = "https:${item.icon}",
-                contentDescription = "im5",
-                modifier = Modifier
-                    .padding(end = 8.dp)
-                    .size(35.dp)
-            )
+            Row() {
+                Text(
+                    text = item.currentTemp.ifEmpty { "${item.maxTemp}/${item.minTemp}ºC" },
+                    color = Color.White,
+                    style = TextStyle(fontSize = 25.sp)
+                )
+                AsyncImage(
+                    model = "https:${item.icon}",
+                    contentDescription = "im5",
+                    modifier = Modifier
+                        .padding(end = 8.dp)
+                        .size(35.dp)
+                )
+            }
         }
     }
 }
