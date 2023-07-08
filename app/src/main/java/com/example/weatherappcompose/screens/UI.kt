@@ -57,7 +57,10 @@ fun ListItem(item: WeatherModel, currentDay: MutableState<WeatherModel>) {
                     bottom = 5.dp
                 )
             ) {
-                Text(text = item.time)
+                Text(
+                    text = item.time,
+                    color = Color.White
+                )
                 Text(
                     text = item.condition,
                     color = Color.White
@@ -76,7 +79,7 @@ fun ListItem(item: WeatherModel, currentDay: MutableState<WeatherModel>) {
                     contentDescription = "im5",
                     modifier = Modifier
                         .padding(end = 8.dp)
-                        .size(35.dp)
+                        .size(40.dp)
                 )
             }
         }
